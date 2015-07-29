@@ -13,7 +13,7 @@ public class ObserverPatternDemo {
 
         subject.setBrutSalary(brutsalary);
         System.out.println("First salary : " + (subject.getBrutSalary()));
-        subject.setBrutSalary(brutsalary +5000);
+        subject.setBrutSalary(brutsalary + 5000);
         System.out.println("Second salary raise : " + (subject.getBrutSalary()));
 
 
