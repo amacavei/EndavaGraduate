@@ -1,0 +1,12 @@
+Given a text "Abcd" normally written
+When the user will try to add and remove bold, italic, and underline
+Then he should be able to notice the text is changed in accordance with his choice.
+
+Given an item named "iPhone"
+And a user John
+And another user Annie
+When John is browsing the item he should be able to see Annie's purchases if she also browsed the item.
+
+Given a pet at the age of 2 months
+When we try to list it for sale
+Then we should be told that he is not old enough.
