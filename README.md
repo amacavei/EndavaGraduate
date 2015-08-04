@@ -11,4 +11,18 @@ Training 3: - Tema Java Basics
 
 Training 4: - Error Handling
 
+Training 5: - Generics
+
+Training 6: - Collections
+
+Training 7: - IO System
+
+Training 8: - Threads
+
+Training 9: - Design Patterns
+
+Training 10:- Testing
+
+Training 11:- Spring
+
 
