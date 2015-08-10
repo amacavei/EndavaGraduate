@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - test@localhost" uuid="f02cb39c-4d60-4516-9968-e4973a096500">
+    <database-info product="MySQL" version="5.6.26-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="test"/>
+    <table name="student" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="age" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+  </data-source>
+  <data-source name="MySQL - jpa@localhost" uuid="118eaa26-866b-4393-94d6-f5abff4f7c71">
+    <database-info product="MySQL" version="5.6.26-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="jpa"/>
+    <table name="dep" schema="" catalog="jpa" type="TABLE">
+      <column name="DEP_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="DEP_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="DEP_ID"/>
+      <exported-key name="FK188C8E95DFF2C" table="emp" schema="" catalog="jpa" columns="DEP_ID"/>
+    </table>
+    <table name="department" schema="" catalog="jpa" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="employee_ibfk_1" table="employee" schema="" catalog="jpa" columns="dept_id"/>
+    </table>
+    <table name="emp" schema="" catalog="jpa" type="TABLE">
+      <column name="EMP_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="EMP_DOB" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="EMP_CITY" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EMP_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EMP_SALARY" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="EMP_STATE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EMP_STREET" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EMP_ZIP" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="DEP_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="EMP_ID"/>
+      <foreign-key name="FK188C8E95DFF2C" columns="DEP_ID" ref-table="dep" ref-schema="" ref-catalog="jpa" ref-columns="DEP_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK7A2140F14D9C0EEF" table="emp_pj" schema="" catalog="jpa" columns="EMP_ID"/>
+      <index name="FK188C8E95DFF2C" unique="false" columns="DEP_ID"/>
+    </table>
+    <table name="emp_pj" schema="" catalog="jpa" type="TABLE">
+      <column name="EMP_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="PJ_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <foreign-key name="FK7A2140F1282D9A6A" columns="PJ_ID" ref-table="prj" ref-schema="" ref-catalog="jpa" ref-columns="PJ_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK7A2140F14D9C0EEF" columns="EMP_ID" ref-table="emp" ref-schema="" ref-catalog="jpa" ref-columns="EMP_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK7A2140F1282D9A6A" unique="false" columns="PJ_ID"/>
+      <index name="FK7A2140F14D9C0EEF" unique="false" columns="EMP_ID"/>
+    </table>
+    <table name="employee" schema="" catalog="jpa" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="salary" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="dept_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="street" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="zip_code" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="birthday" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="employee_ibfk_1" columns="dept_id" ref-table="department" ref-schema="" ref-catalog="jpa" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="prj" schema="" catalog="jpa" type="TABLE">
+      <column name="PJ_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PJ_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="PJ_ID"/>
+      <exported-key name="FK7A2140F1282D9A6A" table="emp_pj" schema="" catalog="jpa" columns="PJ_ID"/>
+    </table>
+    <table name="project" schema="" catalog="jpa" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="project_manager" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="student" schema="" catalog="jpa" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="age" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+  </data-source>
+</component>
