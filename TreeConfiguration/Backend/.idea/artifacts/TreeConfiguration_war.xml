@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="TreeConfiguration:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="TreeConfiguration.war">
+      <element id="artifact" artifact-name="TreeConfiguration:war exploded" />
+    </root>
+  </artifact>
+</component>

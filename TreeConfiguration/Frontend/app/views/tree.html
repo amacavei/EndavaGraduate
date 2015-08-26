@@ -1,0 +1,92 @@
+<div ng-controller="TreeController">
+
+  <accordion close-others="false">
+    </accordion-group>
+    <accordion-group>
+      <accordion-heading>
+      Node Details
+      </accordion-heading>
+      <p>Node:   <input type="text" id = "Node" ></p>
+      <button ng-click = "getNode()">Details</button>
+      <button ng-click = "getParent()">Parent</button>
+      <button ng-click = "getRoot()">Root</button>
+      <button ng-click = "getPathTD()">Top Down</button>
+      <button ng-click = "getPathBU()">Bottom Up</button>
+      <p>ID: {{node._id}}</p>
+      <p>Name: {{node.name}}</p>
+      <p>Children: {{node.children}}</p>
+      <p>Key: {{node.key}}</p>
+      <p>Value: {{node.value}}</p>
+      <p>Parent: {{value.name}}</p>
+      <p>Root: {{root.name}}</p>
+      <p>Configuration Bottom Up:</p>
+       {{pathBu}}
+
+      <p>Configuration Top Down:</p>
+
+        {{pathTd}}
+
+    </accordion-group>
+    <accordion-group>
+      <accordion-heading>
+        Remove
+      </accordion-heading>
+      <p>Node:   <input type="text" id = "NodeRemove" ></p>
+      <p>{{removeN}}</p>
+      <button ng-click = "removeNode()">Remove</button>
+    </accordion-group>
+    <accordion-group>
+      <accordion-heading>
+         Update Parent ID
+      </accordion-heading>
+      <p>Node:   <input type="text" id = "NodeUpdateParent" ></p>
+      <p>ID:     <input type="text" id = "IDParent"></p>
+      <p>{{updateP}}</p>
+      <button ng-click = "updateParent()">Update Parent</button>
+
+    </accordion-group>
+    <accordion-group>
+      <accordion-heading>
+        Update Parent Conf
+      </accordion-heading>
+      <p>Node:   <input type="text" id = "ParentConf" ></p>
+      <p>Key:     <input type="text" id = "ParentKey"></p>
+      <p>Value:     <input type="text" id = "ParentValue"></p>
+      <p>{{updatePConf}}</p>
+      <button ng-click = "updateParentConf()">Update Parent Conf</button>
+    </accordion-group>
+    <accordion-group>
+      <accordion-heading>
+        Update Specific Child
+      </accordion-heading>
+      <p>Node:   <input type="text" id = "NodeUpdateChild" ></p>
+      <p>Key:     <input type="text" id = "ChildKey"></p>
+      <p>Value:     <input type="text" id = "ChildValue"></p>
+      <p>Parent: <input type="text" id = "Parent"></p>
+      <p>{{updateC}}</p>
+      <button ng-click = "updateChild()">Update Child</button>
+    </accordion-group>
+    <accordion-group>
+      <accordion-heading>
+        Update All Children
+      </accordion-heading>
+      <p>Parent: <input type="text" id = "UpdateParent"></p>
+      <p>{{updateAll}}</p>
+      <button ng-click = "updateAllChild()">Update Child</button>
+    </accordion-group>
+    <accordion-group>
+      <accordion-heading>
+        Create
+      </accordion-heading>
+      <p>Node:   <input type="text" id = "NodeCreate" ></p>
+      <p>Parent: <input type="text" id = "NodeParent"></p>
+      <p>Key: <input type="text" id = "NodeKey"></p>
+      <p>Value: <input type="text" id = "NodeValue"></p>
+      <p>{{createN}}</p>
+      <button ng-click = "createNode()">Create</button>
+    </accordion-group>
+  </accordion>
+  <button ng-click = "generateDB()">Reset MongoDB</button>
+
+</div>
+
