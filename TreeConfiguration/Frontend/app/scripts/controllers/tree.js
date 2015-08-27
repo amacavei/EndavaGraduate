@@ -6,6 +6,19 @@ angular.module('newApp')
   .controller('TreeController', function($scope,$http) {
 
 
+    $scope.updateNewParent = function() {
+      $http.put("http://localhost:8181/updateNewParent",
+        {
+          name: document.getElementById('KidName').value,
+          parent: document.getElementById('ParentName').value
+        })
+        .success(function (response) {
+          $scope.newParent = response;
+        })
+        .success(function (data) {
+          $scope.updateNP = data;
+        });
+    };
 
     $scope.updateParentConf = function() {
       $http.put("http://localhost:8181/updateParentConf",

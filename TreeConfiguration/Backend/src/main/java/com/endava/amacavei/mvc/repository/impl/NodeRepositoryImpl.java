@@ -42,7 +42,6 @@ public class NodeRepositoryImpl implements NodeRepository {
         else {
 
             DBObject obj = findNode(getParent(name).get("name").toString());
-            System.out.println(obj);
             BasicDBList resultParentChildren = (BasicDBList) obj.get("children");
             if (!resultParentChildren.isEmpty()) {
                 resultParentChildren.remove(name);
@@ -249,7 +248,7 @@ public class NodeRepositoryImpl implements NodeRepository {
     public void addToMongo(Node node) {
 
 
-        BasicDBObject doc = new BasicDBObject("_id",node.getId()).append("name", node.getName()).append("children",node.getChildren()).append("key", node.getKey()).append("value",node.getValue());
+        BasicDBObject doc = new BasicDBObject("_id",node.getId()).append("name", node.getName()).append("children", node.getChildren()).append("key", node.getKey()).append("value", node.getValue());
         dbCollection.save(doc);
     }
 
@@ -281,6 +280,51 @@ public class NodeRepositoryImpl implements NodeRepository {
 
         return newObj;
     }
+
+    @Override
+    public String updateParent(String name,String parent){
+        String response="";
+        DBObject node = findNode(name);
+
+        DBObject obj = findNode(getParent(name).get("name").toString());
+        BasicDBList resultParentChildren = (BasicDBList) obj.get("children");
+        if (!resultParentChildren.isEmpty()) {
+            resultParentChildren.remove(name);
+        }
+
+        BasicDBObject newParent = new BasicDBObject("_id", obj.get("_id")).append("name", obj.get("name")).append("children", resultParentChildren).append("key", obj.get("key")).append("value", obj.get("value"));
+        dbCollection.remove(obj);
+        dbCollection.save(newParent);
+        updateAllChildren(newParent.get("name").toString());
+
+
+
+        if(node==null){
+            System.out.println("ceva");
+            response = "Node not found!";
+        }
+        else {
+            System.out.println("else");
+            DBObject parentNode = findNode(parent);
+            if(parentNode==null){
+                System.out.println("altceva");
+                response = "Parent not found!";
+            }
+            else {
+                System.out.println("altelse");
+                BasicDBList parentKidList = (BasicDBList) parentNode.get("children");
+                System.out.println(node.get("name"));
+                parentKidList.add(node.get("name"));
+                dbCollection.save(parentNode);
+                BasicDBObject newDoc = new BasicDBObject("_id", parentNode.get("_id") + "." + (parentKidList.indexOf(node.get("name")) + 1)).append("name", node.get("name")).append("children", node.get("children")).append("key", node.get("key")).append("value", node.get("value"));
+                dbCollection.remove(node);
+                dbCollection.save(newDoc);
+                System.out.println("New Node details: " + newDoc);
+                updateAllChildren(newDoc.get("name").toString());
+            }
+        }
+        return response;
+    }
     @Override
     public String updateAllChildren(String name){
 
@@ -293,8 +337,6 @@ public class NodeRepositoryImpl implements NodeRepository {
         BasicDBList kidList = (BasicDBList) parentNode.get("children");
         for(Object item:kidList) {
 
-
-            System.out.println(item.toString());
             DBObject resultParent = findNode(item.toString());
             BasicDBObject newDoc = new BasicDBObject("_id", id + "." + (kidList.indexOf(item) + 1)).append("name", resultParent.get("name")).append("children", resultParent.get("children")).append("key", resultParent.get("key")).append("value", resultParent.get("value"));
             System.out.println(newDoc + " " + id);

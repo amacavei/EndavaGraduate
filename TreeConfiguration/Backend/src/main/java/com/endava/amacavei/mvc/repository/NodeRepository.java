@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public interface NodeRepository {
 
 
+    String updateParent(String name,String parent);
     String updateParentConf(String key,String value,String parent);
     DBObject findNode(String name);
     String updateAllChildren(String name);

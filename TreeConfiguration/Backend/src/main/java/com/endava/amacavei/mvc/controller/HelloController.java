@@ -224,6 +224,22 @@ public class HelloController {
 		return new ResponseEntity<String>(nodeService.hasChildren(name),HttpStatus.OK);
 	}
 
+	//Update a child parent
+	@RequestMapping(value = "/updateNewParent", method = RequestMethod.PUT)
+	public ResponseEntity<String> updateParentForNode(@RequestBody String body)throws com.fasterxml.jackson.core.JsonProcessingException{
+
+		String responseMessage="";
+		Map<String,String> mapBody = null;
+		try {
+			mapBody = objectMapper.readValue(body,Map.class);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if(mapBody!=null && mapBody.get("name") !=null && mapBody.get("parent")!=null)
+			responseMessage = objectMapper.writeValueAsString(nodeService.updateParent(mapBody.get("name"),mapBody.get("parent")));
+		return new ResponseEntity<String>(responseMessage,HttpStatus.OK);
+	}
+
 	//Update all the ID's of all children for a specific node if that node has children
 	@RequestMapping(value = "/updateAllChildren", method = RequestMethod.PUT)
 	public ResponseEntity<String> updateAllChildren(@RequestBody String body)throws com.fasterxml.jackson.core.JsonProcessingException{

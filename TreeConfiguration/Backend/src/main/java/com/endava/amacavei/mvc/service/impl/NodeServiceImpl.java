@@ -59,6 +59,12 @@ public class NodeServiceImpl implements NodeService{
     }
 
     @Override
+    public String updateParent(String name,String parent){
+
+        return nodeRepository.updateParent(name,parent);
+    }
+
+    @Override
     public void addChild(Node parent,Node child){
         nodeRepository.addChild(parent, child);
 
