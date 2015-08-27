@@ -58,17 +58,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NodeRepositoryImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NodeRepositoryImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/amacavei/mvc/repository/impl/NodeRepositoryImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5577236">
-              <caret line="331" column="47" selection-start-line="331" selection-start-column="47" selection-end-line="331" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6483#6498#0" expanded="true" />
-                <element signature="e#7185#7200#0" expanded="true" />
-                <element signature="e#8656#8666#0" expanded="true" />
-                <marker date="1440676404015" expanded="true" signature="9892:10000" placeholder="..." />
+                <element signature="e#6658#6673#0" expanded="true" />
+                <element signature="e#7413#7428#0" expanded="true" />
+                <element signature="e#8942#8952#0" expanded="true" />
+                <marker date="1440686582990" expanded="true" signature="10258:10326" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -98,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HelloController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/amacavei/mvc/controller/HelloController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.185185">
-              <caret line="230" column="34" selection-start-line="230" selection-start-column="34" selection-end-line="230" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.6241497">
+              <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,7 +126,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/amacavei/mvc/config/MongoConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#492#493#0" expanded="true" />
@@ -992,12 +992,12 @@
       <workItem from="1439539352112" duration="62831000" />
       <workItem from="1439990669887" duration="27135000" />
       <workItem from="1440331235939" duration="4481000" />
-      <workItem from="1440399919643" duration="72664000" />
+      <workItem from="1440399919643" duration="75883000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173137000" />
+    <option name="totallyTimeSpent" value="176356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1086,10 +1086,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6483#6498#0" expanded="true" />
-            <element signature="e#7185#7200#0" expanded="true" />
-            <element signature="e#8656#8666#0" expanded="true" />
-            <marker date="1440676404015" expanded="true" signature="9892:10000" placeholder="..." />
+            <element signature="e#6658#6673#0" expanded="true" />
+            <element signature="e#7413#7428#0" expanded="true" />
+            <element signature="e#8942#8952#0" expanded="true" />
+            <marker date="1440686582990" expanded="true" signature="10258:10326" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1435,18 +1435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/amacavei/mvc/config/MongoConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/amacavei/mvc/model/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1490,26 +1478,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/amacavei/mvc/controller/HelloController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/amacavei/mvc/repository/impl/NodeRepositoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.185185">
-          <caret line="230" column="34" selection-start-line="230" selection-start-column="34" selection-end-line="230" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#6658#6673#0" expanded="true" />
+            <element signature="e#7413#7428#0" expanded="true" />
+            <element signature="e#8942#8952#0" expanded="true" />
+            <marker date="1440686582990" expanded="true" signature="10258:10326" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/amacavei/mvc/repository/impl/NodeRepositoryImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/amacavei/mvc/config/MongoConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5577236">
-          <caret line="331" column="47" selection-start-line="331" selection-start-column="47" selection-end-line="331" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6483#6498#0" expanded="true" />
-            <element signature="e#7185#7200#0" expanded="true" />
-            <element signature="e#8656#8666#0" expanded="true" />
-            <marker date="1440676404015" expanded="true" signature="9892:10000" placeholder="..." />
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#545#546#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/endava/amacavei/mvc/controller/HelloController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6241497">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

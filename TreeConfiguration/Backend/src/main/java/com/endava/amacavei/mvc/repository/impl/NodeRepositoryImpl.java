@@ -2,7 +2,6 @@ package com.endava.amacavei.mvc.repository.impl;
 
 import com.endava.amacavei.mvc.model.Node;
 import com.endava.amacavei.mvc.repository.NodeRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.regex.Pattern;
 
@@ -41,16 +39,20 @@ public class NodeRepositoryImpl implements NodeRepository {
         }
         else {
 
+            //Delete in parent children list
             DBObject obj = findNode(getParent(name).get("name").toString());
             BasicDBList resultParentChildren = (BasicDBList) obj.get("children");
             if (!resultParentChildren.isEmpty()) {
                 resultParentChildren.remove(name);
             }
 
+            //Update new parent children list
             BasicDBObject newParent = new BasicDBObject("_id", obj.get("_id")).append("name", obj.get("name")).append("children", resultParentChildren).append("key", obj.get("key")).append("value", obj.get("value"));
             dbCollection.remove(obj);
             dbCollection.save(newParent);
 
+
+            //Delete all the children
             String resultID = findNode(name).get("_id").toString();
             BasicDBObject query = new BasicDBObject();
             Pattern regex = Pattern.compile("^" + resultID);
@@ -125,9 +127,11 @@ public class NodeRepositoryImpl implements NodeRepository {
             DBObject next = findNode(parent);
             BasicDBList parentKidList = (BasicDBList) next.get("children");
 
+            //Update id for the new child in the children list
             BasicDBObject kid = new BasicDBObject("_id", next.get("_id") + "." + (parentKidList.size() + 1)).append("name", newChild).append("children", new ArrayList<String>()).append("key", key).append("value", value);
             dbCollection.save(kid);
 
+            //Add new child
             BasicDBList kidList = (BasicDBList) next.get("children");
             kidList.add(kid.get("name"));
             BasicDBObject newDoc = new BasicDBObject("_id", next.get("_id")).append("name", next.get("name")).append("children", kidList).append("key", next.get("key")).append("value", next.get("value"));
@@ -183,6 +187,7 @@ public class NodeRepositoryImpl implements NodeRepository {
 
         String resultID = findNode(name).get("_id").toString();
         int i = 0;
+        //count the numbers of "."
         while(resultID.charAt(i)!='.'){
             i++;
         }
@@ -212,6 +217,7 @@ public class NodeRepositoryImpl implements NodeRepository {
     public String getPathTopDown(String name) throws com.fasterxml.jackson.core.JsonProcessingException {
 
         String resultID = findNode(name).get("_id").toString();
+        //Using HashMap to overwrite the common keys
         HashMap<String,String> path = new HashMap<String,String>();
         String parentID;
 
@@ -235,6 +241,7 @@ public class NodeRepositoryImpl implements NodeRepository {
         String resultID = findNode(name).get("_id").toString();
         String parentID;
         int i = resultID.length()-1;
+        //Parse the id before the first occurrence of "."
         while(resultID.charAt(i) != '.'){
             i--;
         }
@@ -286,12 +293,15 @@ public class NodeRepositoryImpl implements NodeRepository {
         String response="";
         DBObject node = findNode(name);
 
+
+        //remove node from current parent
         DBObject obj = findNode(getParent(name).get("name").toString());
         BasicDBList resultParentChildren = (BasicDBList) obj.get("children");
         if (!resultParentChildren.isEmpty()) {
             resultParentChildren.remove(name);
         }
 
+        //add the node to new parent
         BasicDBObject newParent = new BasicDBObject("_id", obj.get("_id")).append("name", obj.get("name")).append("children", resultParentChildren).append("key", obj.get("key")).append("value", obj.get("value"));
         dbCollection.remove(obj);
         dbCollection.save(newParent);
@@ -300,26 +310,21 @@ public class NodeRepositoryImpl implements NodeRepository {
 
 
         if(node==null){
-            System.out.println("ceva");
             response = "Node not found!";
         }
         else {
-            System.out.println("else");
             DBObject parentNode = findNode(parent);
             if(parentNode==null){
-                System.out.println("altceva");
                 response = "Parent not found!";
             }
             else {
-                System.out.println("altelse");
+                //update the parent and all the children of the node
                 BasicDBList parentKidList = (BasicDBList) parentNode.get("children");
-                System.out.println(node.get("name"));
                 parentKidList.add(node.get("name"));
                 dbCollection.save(parentNode);
                 BasicDBObject newDoc = new BasicDBObject("_id", parentNode.get("_id") + "." + (parentKidList.indexOf(node.get("name")) + 1)).append("name", node.get("name")).append("children", node.get("children")).append("key", node.get("key")).append("value", node.get("value"));
                 dbCollection.remove(node);
                 dbCollection.save(newDoc);
-                System.out.println("New Node details: " + newDoc);
                 updateAllChildren(newDoc.get("name").toString());
             }
         }
@@ -337,6 +342,7 @@ public class NodeRepositoryImpl implements NodeRepository {
         BasicDBList kidList = (BasicDBList) parentNode.get("children");
         for(Object item:kidList) {
 
+            //Update all children ID's using the parent ID
             DBObject resultParent = findNode(item.toString());
             BasicDBObject newDoc = new BasicDBObject("_id", id + "." + (kidList.indexOf(item) + 1)).append("name", resultParent.get("name")).append("children", resultParent.get("children")).append("key", resultParent.get("key")).append("value", resultParent.get("value"));
             System.out.println(newDoc + " " + id);
