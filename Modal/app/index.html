@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app='modal.demo'>
+
+  <head>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+
+
+
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="scripts/demoCtrl.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.3.js"></script>
+
+
+  </head>
+
+  <body >
+    <div ng-controller="Modal">
+
+    <script type="text/ng-template" id="myModalContent.html">
+       <div class="modal-header">
+           <h3 class="modal-title">Im a modal!</h3>
+       </div>
+       <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+    <button type="button" class="btn btn-default" ng-click="open('lg')">Open me!</button>
+    </div>
+  </body>
+
+</html>
