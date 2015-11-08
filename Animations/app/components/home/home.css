@@ -1,0 +1,39 @@
+.homeWindow{
+  background-color: rgb(33,150,243);
+  position:absolute;
+  height: 88%;
+  width: 97%;
+  top: 67px;
+  left: 1.5%;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px 5px #888888;
+  color: white;
+}
+.hide{
+  display: none;
+}
+.homeContainer {
+    padding-left: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-right: 20px;
+}
+.homeDescription{
+  font-family: 'Berkshire Swash',cursive;
+  padding-top:30px;
+  font-size: 16px;
+}
+
+.homeTitle{
+  font-family: 'Indie Flower', cursive;
+  padding-right: 20px;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.homeTitle::after{
+  content:"\f05a";
+  font-family: FontAwesome;
+  padding-left: 10px;
+}
