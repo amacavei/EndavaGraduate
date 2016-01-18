@@ -1,0 +1,31 @@
+<div>
+  <base-template></base-template>
+  <div class="contactsWindow">
+    <div class="contactsContainer">
+      <div class="contactsTitle">Contacts
+      </div>
+      <div>
+      <i class="col-md-4 col-sm-4 search">Search...
+      </i>
+      <i class="col-md-4 col-sm-4 edit">Edit
+      </i>
+      <i class="col-md-4 col-sm-4 plus">Add
+      </i>
+    </div>
+      <div>
+      <div class="col-md-2 col-sm-4" ng-repeat="x in contactCtrl.contacts">
+        <div class = "contact-info">
+          <div class="description">
+            <div class="name">{{x.firstName}}
+            </div>
+            <div class="surname">{{x.lastName}}
+            </div>
+            <div class="phoneNumber">{{x.phoneNumber}}
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+    </div>
+</div>
+</div>
