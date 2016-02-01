@@ -22,7 +22,7 @@
 
                 $http({
                     method:'GET',
-                    url: 'http://localhost:8080/getAllContacts'
+                    url: 'http://localhost:7001/getAllContacts'
                 }).success(function(info){
                     var result = {};
                     if(info){

@@ -20,7 +20,7 @@
 
             var me = this;
             me.contacts = [];
-            console.log('ContactController')
+            console.log('ContactController');
 
             ContactService.getAllCustomers().then(function(data){
 
