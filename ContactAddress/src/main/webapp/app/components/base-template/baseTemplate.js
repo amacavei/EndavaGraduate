@@ -17,7 +17,6 @@ angular
       expand: true,
       items: ['Home','View Contacts','Logout']
     }
-        console.log('base')
 
     me.go = function (path) {
       $location.url(path);

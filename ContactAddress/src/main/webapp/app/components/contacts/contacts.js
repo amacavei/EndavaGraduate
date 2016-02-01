@@ -14,12 +14,13 @@
         })
         .controller('contactController', contactController);
 
-        contactController.$inject = ['ContactService', '$scope'];
+        contactController.$inject = ['ContactService'];
 
-        function contactController(ContactService,$scope) {
+        function contactController(ContactService) {
 
             var me = this;
             me.contacts = [];
+            me.showModal = false;
             console.log('ContactController');
 
             ContactService.getAllCustomers().then(function(data){

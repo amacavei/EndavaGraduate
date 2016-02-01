@@ -1,16 +1,20 @@
 <div class="navmenu" ng-class="{'expanded': baseCtrl.config.expand}">
-  <div class="navmenu-container">
-    <div class="title">Welcome to your contact address book !
+    <div class="navmenu-container">
+        <div class="title">Welcome to your contact address book !
+        </div>
+        <div class="fa-arrow-right" ng-class="{'disband': baseCtrl.config.expand}"
+             ng-click="baseCtrl.config.expand = !baseCtrl.config.expand">
+        </div>
     </div>
-    <div class="fa-arrow-right" ng-class="{'disband': baseCtrl.config.expand}" ng-click="baseCtrl.config.expand = !baseCtrl.config.expand">
+    <div class="navmenu-item-1" ng-if="baseCtrl.config.expand" ng-click="baseCtrl.go('/home')"
+         ng-model="baseCtrl.config.items[0]">{{baseCtrl.config.items[0]}}
     </div>
-  </div>
-  <div class="navmenu-item-1" ng-if="baseCtrl.config.expand" ng-click="baseCtrl.go('/home')" ng-model = "baseCtrl.config.items[0]">{{baseCtrl.config.items[0]}}
-  </div>
-  <div class="navmenu-item-2" ng-if="baseCtrl.config.expand" ng-click="baseCtrl.go('/contacts')" ng-model = "baseCtrl.config.items[1]">{{baseCtrl.config.items[1]}}
-  </div>
-  <div class="navmenu-item-3" ng-if="baseCtrl.config.expand" ng-model = "baseCtrl.config.items[2]">{{baseCtrl.config.items[2]}}
-  </div>
-  <div class="logo" ng-if="baseCtrl.config.expand">
-  </div>
+    <div class="navmenu-item-2" ng-if="baseCtrl.config.expand" ng-click="baseCtrl.go('/contacts')"
+         ng-model="baseCtrl.config.items[1]">{{baseCtrl.config.items[1]}}
+    </div>
+    <div class="navmenu-item-3" ng-if="baseCtrl.config.expand" ng-model="baseCtrl.config.items[2]">
+        {{baseCtrl.config.items[2]}}
+    </div>
+    <div class="logo" ng-if="baseCtrl.config.expand">
+    </div>
 </div>

@@ -14,10 +14,8 @@
                 return true;
             }
 
-            console.log('ContactService')
 
             function getAllCustomers(){
-                console.log('service get')
                 var deferred = $q.defer();
 
                 $http({
