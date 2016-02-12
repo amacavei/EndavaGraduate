@@ -21,8 +21,8 @@
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value = "com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/contact"/>
-        <property name="username" value="root"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/contacts"/>
+        <property name="username" value="amacavei"/>
         <property name="password" value="admin"/>
         <property name="validationQuery" value = "SELECT 1"/>
     </bean>

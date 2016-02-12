@@ -74,7 +74,7 @@ public class ContactDaoImpl implements ContactDao {
         ContactListDTO response = new ContactListDTO();
         try {
 
-            Query q = sessionFactory.getCurrentSession().createQuery("from phonecontacts");
+            Query q = sessionFactory.getCurrentSession().createQuery("from contacts");
             System.out.println("--------DAO list" + q.list().size() + "-------");
             response.setContacts(q.list());
             System.out.println("--------DAO" + response.getContacts() + "-------");
