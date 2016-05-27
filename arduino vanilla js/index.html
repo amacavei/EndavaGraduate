@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Control</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="bower_components/bootstrap-toggle/css/bootstrap-toggle.css" rel="stylesheet">
+    </head>
+  <body>
+    <div class="container">
+        <h1>Arduino WindMill Control</h1>
+        <input id="toggle-event" type="checkbox" checked data-toggle="toggle">
+    <div class="row">
+      <div class="col-md-6">
+      <h4>Select Servo Position: </h4>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="servobtn btn btn-primary">
+              <input type="radio" name="servo" id="servo1" value="0"> 0
+            </label>
+            <label class="servobtn btn btn-primary">
+              <input type="radio" name="servo" id="servo2" value="45"> 45
+            </label>
+            <label class="servobtn btn btn-primary">
+              <input type="radio" name="servo" id="servo3" value="90"> 90
+            </label>
+            <label class="servobtn btn btn-primary">
+              <input type="radio" name="servo" id="servo4" value="135"> 135
+            </label>
+            <label class="servobtn btn btn-primary">
+              <input type="radio" name="servo" id="servo5" value="180"> 180
+            </label>
+        </div>
+      </div>
+      <div class="col-md-6">
+      <h4>LED Pulse Delay (ms)</h4>
+      <p><input type="text" class="form-control" id="ledDelay" name="ledDelay" value="1000" /></p>
+      <p><button id="ledSet" class="btn btn-primary">Set Delay</button></p>
+      </div>
+    </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="bower_components/bootstrap-toggle/js/bootstrap-toggle.js"></script>
+    <script src="browser.js"></script>
+
+    </body>
+</html>
