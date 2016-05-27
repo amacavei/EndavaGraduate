@@ -12,7 +12,7 @@ $('#toggle-event').change(function() {
 
   if(checked){
 
-    $(".row").show();
+  $(".row").show();
 
   $('.servobtn').button();
 
