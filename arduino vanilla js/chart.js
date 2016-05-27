@@ -1,5 +1,10 @@
 window.onload = function () {
 
+  $(function() {
+  $('#toggle-event').change(function() {
+    var checked = $(this).prop('checked');
+    if (!checked) {
+
 		var dps = []; // dataPoints
 
 		var chart = new CanvasJS.Chart("chartContainer",{
@@ -12,20 +17,18 @@ window.onload = function () {
 			}]
 		});
 
+
 		var xVal = 0;
 		var yVal = 100;
 		var updateInterval = 100;
 		var dataLength = 500; // number of dataPoints visible at any point
 
+
+
+
 		var updateChart = function (count) {
 			count = count || 1;
 			// count is number of times loop runs to generate random dataPoints.
-
-      $(function() {
-      $('#toggle-event').change(function() {
-        var checked = $(this).prop('checked');
-
-        if(!checked){
 
 			for (var j = 0; j < count; j++) {
 				yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
@@ -44,12 +47,14 @@ window.onload = function () {
 
 		};
 
+
 		// generates first set of dataPoints
 		updateChart(dataLength);
 
 		// update chart after specified time.
 		setInterval(function(){updateChart()}, updateInterval);
-  });
-});
+  }
 
-	}
+})
+})
+}
