@@ -14,6 +14,8 @@ $('#toggle-event').change(function() {
 
   $(".row").show();
   $("#chartContainer").hide();
+  $("#chartContainerWind").hide();
+  $("#chartContainerGear").hide();
 
   $('.servobtn').button();
 
@@ -32,6 +34,8 @@ $('#toggle-event').change(function() {
   }else{
     $(".row").hide();
     $("#chartContainer").show();
+    $("#chartContainerWind").show();
+    $("#chartContainerGear").show();
     console.log('automatic control');
   }
 
