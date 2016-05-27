@@ -13,6 +13,7 @@ $('#toggle-event').change(function() {
   if(checked){
 
   $(".row").show();
+  $("#chartContainer").hide();
 
   $('.servobtn').button();
 
@@ -30,6 +31,7 @@ $('#toggle-event').change(function() {
   });
   }else{
     $(".row").hide();
+    $("#chartContainer").show();
     console.log('automatic control');
   }
 

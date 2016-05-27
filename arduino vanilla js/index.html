@@ -19,6 +19,8 @@
         <h1>Arduino WindMill Control</h1>
         <h3 style="display: inline-block"> Select the type of control: </h3>
         <input style="display:inline-block" id="toggle-event" type="checkbox" checked data-toggle="toggle" data-on = "Manual" data-off = "Automatic">
+        <div id="chartContainer" style="height: 300px; width: 100%;">
+        </div>
     <div style="padding-top: 50px" class="row">
       <div class="col-md-6">
       <h4>Select Servo Position: </h4>
@@ -54,6 +56,7 @@
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script src="bower_components/bootstrap-toggle/js/bootstrap-toggle.js"></script>
     <script src="browser.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+    <script src="chart.js"></script>
     </body>
 </html>
